@@ -1,0 +1,24 @@
+body {
+    background-color: #EEEEEE;
+}
+nav {
+    border-bottom: 1px solid #172B43;
+}
+.container {
+    background-color: white;
+}
+.container-shadow {
+    box-shadow: 0px 5px 20px 5px rgba(0,0,0,0.24);
+}
+.navbar-nav {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.navbar-brand {
+    background-image: url(../img/logo.png);
+    width: 200px;
+    height: 113px;
+}
+.no-left-pad {
+    padding-left: 0;
+}
