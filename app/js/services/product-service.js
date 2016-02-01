@@ -1,14 +1,11 @@
+'use strict';
 
-app.factory('productService', ['$http', function($http) {
+app.factory('productService', ['$http', ProductService]);
+
+function ProductService($http) {
     return {
         getAll: function() {
-            return $http.get('http://jeremy-raymond.com/product-api/products')
-                .success(function(data) {
-                    return data;
-                })
-                .error(function(err) {
-                    return err;
-                });
+            return $http.get('http://jsonplaceholder.typicode.com/posts?userId=1');
         }
     }
-}]);
+}

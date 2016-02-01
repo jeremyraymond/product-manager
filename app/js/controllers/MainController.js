@@ -1,10 +1,15 @@
-app.controller('MainController', ['$scope','productService', function($scope, $productService) {
+'use strict';
+
+app.controller('MainController', ['$scope','productService', MainController]);
+
+function MainController($scope, $productService) {
     $scope.allProducts = {};
 
-    $productService.getAll().then(function(response) {
-        $scope.allProducts = response.data;
-    }, function() {
-        alert("productService broke");
-    });
-
-}]);
+    $productService
+        .getAll()
+        .then(function (response) {
+            $scope.allProducts = response.data;
+        }, function (error) {
+            alert(error);
+        });
+}

@@ -1,13 +1,18 @@
 var app = angular.module("productApp", ['ui.router']);
 
-app.config(function ($stateProvider, $urlRouterProvider) {
-    $stateProvider
-        .state('welcome', {
+app.config(getConfig);
+
+function getConfig($stateProvider) {
+    var welcome = {
             url: "",
             templateUrl: "views/welcome.html"
-        })
-        .state('products', {
+        },
+        products = {
             url: "products",
             templateUrl: "views/products.html"
-        });
-});
+        };
+
+    $stateProvider
+        .state('welcome', welcome)
+        .state('products', products);
+};
