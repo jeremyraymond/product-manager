@@ -1,13 +1,13 @@
+
 app.factory('productService', ['$http', function($http) {
     return {
-        getAll: function getAll() {
-            $http.get('http://jeremy-raymond.com/product-api/products')
+        getAll: function() {
+            return $http.get('http://jeremy-raymond.com/product-api/products')
                 .success(function(data) {
-                    console.log("test1");
+                    console.log(data);
                     return data;
                 })
                 .error(function(err) {
-                    console.log("test2");
                     return err;
                 });
         }
