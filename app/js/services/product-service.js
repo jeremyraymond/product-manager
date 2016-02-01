@@ -4,7 +4,6 @@ app.factory('productService', ['$http', function($http) {
         getAll: function() {
             return $http.get('http://jeremy-raymond.com/product-api/products')
                 .success(function(data) {
-                    console.log(data);
                     return data;
                 })
                 .error(function(err) {
