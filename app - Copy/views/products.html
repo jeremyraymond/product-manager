@@ -1,0 +1,13 @@
+<h1>Products</h1>
+<div class="col-md-3" ng-repeat="product in allProducts" >
+<div class="panel panel-primary">
+    <div class="panel-heading"><b>{{ product.product_name }}</b></div>
+    <div class="panel-body">
+        <ul>
+            <li><b>Made by:</b> {{ product.manufacturer_name }}</li>
+            <li><b>Price:</b> {{ product.product_price | currency }}</li>
+            <li><b>Description:</b> <br>{{ product.product_description }}</li>
+        </ul>
+    </div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+/*//////////////////////////////
+    General Utility Styles
+//////////////////////////////*/
+.no-left-pad {
+    padding-left: 0;
+}
+
+/*//////////////////////////////
+    Body and Header Styles
+//////////////////////////////*/
+body {
+    background-color: #EEEEEE;
+}
+.container {
+    background-color: white;
+}
+.container-shadow {
+    box-shadow: 0 5px 20px 5px rgba(0,0,0,0.24);
+}
+.navbar-brand {
+    background-image: url(../img/logo.png);
+    width: 200px;
+    height: 113px;
+}
+
+/*//////////////////////////////
+    Content styles
+//////////////////////////////*/
+ul {
+    padding-left: 0;
+}
+li {
+    list-style-type: none;
+}
+#content {
+    border-top: 1px solid rgba(23,43,67,.2);
+}
+.panel-primary>.panel-heading {
+    background-color: #172B43;
+    background-image: none;
+}
