@@ -1,3 +1,3 @@
-app.controller('MainController', ['$scope', function($scope) {
-    $scope.test = "Hello World";
+app.controller('MainController', ['$scope','productService', function($scope, $productService) {
+    $scope.allProducts = $productService.getAll();
 }]);
