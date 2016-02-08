@@ -1,8 +1,8 @@
 
 app.factory('productService', ['$http', function($http) {
     return {
-        getAll: function() {
-            return $http.get('http://jeremy-raymond.com/product-api/products')
+        getProducts: function(config) {
+            return $http.get('http://jeremy-raymond.com/product-api/products', config)
                 .success(function(data) {
                     return data;
                 })
