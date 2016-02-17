@@ -1,6 +1,7 @@
 /**
  * Created by Jeremy on 1/31/2016.
  */
+"use strict";
 
 app.directive('products', function() {
     return {

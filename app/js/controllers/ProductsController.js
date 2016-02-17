@@ -1,3 +1,5 @@
+"use strict";
+
 app.controller('ProductsController', ['$scope','productService', function($scope, $productService) {
     $scope.products = {};
 
@@ -28,8 +30,6 @@ app.controller('ProductsController', ['$scope','productService', function($scope
     };
     $productService.getProducts(config).then(function (response) {
         $scope.products = response.data;
-        console.log("test");
-        console.log($scope.products);
     }, function () {
         alert("productService broke");
     });

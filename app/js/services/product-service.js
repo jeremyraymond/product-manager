@@ -1,3 +1,4 @@
+"use strict";
 
 app.factory('productService', ['$http', function($http) {
     return {
