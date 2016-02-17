@@ -6,8 +6,7 @@
             <ul>
                 <li><b>Made by:</b> {{ p.manufacturer_name }}</li>
                 <li><b>Price:</b> {{ p.price | currency }}</li>
-                <li><b>Description:</b> <br>{{ p.description }}</li>
-                <!-- create filter on description to cut off the text at a certain point -->
+                <li><b>Description:</b> <br>{{ p.description | limitchars:20 }}</li>
             </ul>
         </div>
     </div>
