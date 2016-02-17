@@ -15,27 +15,7 @@
     <script src="js/shared/bootstrap.min.js"></script>
 </head>
 <body ng-app="productApp">
-<div id="main" class="container container-shadow" ng-controller="ProductsController">
-
-    <!-- header nav ------------------------------------------>
-    <nav class="navbar">
-        <div>
-            <a class="navbar-brand" href="/"></a>
-        </div>
-        <ul class="nav navbar-nav col-md-4">
-            <li><a ui-sref="welcome">Welcome</a></li>
-            <li><a ui-sref="products">Products</a></li>
-        </ul>
-        <div class="col-md-5 text-right">
-            <h1>Product Manager</h1>
-        </div>
-    </nav>
-    <!-- end header nav -------------------------------------->
-
-    <!-- content --------------------------------------------->
-    <div id="content" ui-view></div>
-    <!-- end content ----------------------------------------->
-</div>
+<div id="main" class="container container-shadow" ui-view ></div>
 
 <!-- Modules -->
 <script src="js/app.js"></script>

@@ -1,14 +1,17 @@
 /**
  * Created by Jeremy on 1/31/2016.
  */
-/*
-app.directive('welcome', function() {
+
+app.directive('products', function() {
     return {
         restrict: 'E',
-        scope: {
-            info: '='
-        },
-        templateUrl: 'js/directives/html/welcome.html'
+        templateUrl: 'js/directives/html/products-dir.html'
     };
 });
-*/
+
+app.directive('mynav', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'js/directives/html/mynav-dir.html'
+    };
+});
