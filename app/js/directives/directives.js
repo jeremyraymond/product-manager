@@ -1,6 +1,3 @@
-/**
- * Created by Jeremy on 1/31/2016.
- */
 "use strict";
 
 app.directive('products', function() {
@@ -14,5 +11,12 @@ app.directive('mynav', function() {
     return {
         restrict: 'E',
         templateUrl: 'js/directives/html/mynav-dir.html'
+    };
+});
+
+app.directive('productsfilter', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'js/directives/html/productsfilter-dir.html'
     };
 });

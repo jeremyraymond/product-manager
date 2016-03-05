@@ -1,4 +1,27 @@
 /*//////////////////////////////
+Fonts
+//////////////////////////////*/
+@font-face {
+    font-family: 'PuristaBold';
+    url('../fonts/purista_bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PuristaLight';
+    url('../fonts/purista_light.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'PuristaMedium';
+    url('../fonts/purista_medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'TinosBold';
+    url('../fonts/Tinos-Bold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'TinosRegular';
+    url('../fonts/Tinos-Regular.ttf') format('truetype');
+}
+/*//////////////////////////////
     General Utility Styles
 //////////////////////////////*/
 .no-left-pad {
@@ -9,10 +32,10 @@
     Body and Header Styles
 //////////////////////////////*/
 body {
-    background-color: #EEEEEE;
+    background-color: black;
 }
 .container {
-    background-color: white;
+    background-color: black;
 }
 .container-shadow {
     box-shadow: 0 5px 20px 5px rgba(0,0,0,0.24);
@@ -38,4 +61,7 @@ li {
 .panel-primary>.panel-heading {
     background-color: #172B43;
     background-image: none;
+}
+#productsfilter {
+    background-color: black;
 }
