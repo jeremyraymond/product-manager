@@ -1,25 +1,33 @@
 <div id="productsfilter" class="col-md-3">
     <form>
         <fieldset class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+            <label for="product_name">Product Name</label>
+            <input type="text" class="form-control" id="product_name" placeholder="Ex: 'con' or 'nulla'" ng-model="filters['product_name']">
         </fieldset>
 
         <fieldset class="form-group">
-            <label for="exampleSelect1">Example select</label>
-            <select class="form-control" id="exampleSelect1">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
+            <label for="min_price">Minimum Price</label>
+            <input type="text" class="form-control" id="min_price" ng-model="filters['bot_price']">
         </fieldset>
+
+        <fieldset class="form-group">
+            <label for="max_price">Maximum Price</label>
+            <input type="text" class="form-control" id="max_price" ng-model="filters['top_price']">
+        </fieldset>
+
         <div class="checkbox">
             <label>
-                <input type="checkbox"> Check me out
+                <input type="checkbox" id="in_stock" ng-model="filters[in_stock]" ng-true-value="true" ng-false-value="false"> Only show in stock
             </label>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <fieldset class="form-group">
+            <label for="manufacturers">Manufacturers</label>
+            <select class="form-control" id="manufacturers" ng-model="filters['manufacturer_guid']" ng-options="p.manufacturer_guid as p.manufacturer_name for p in products">
+            </select>
+        </fieldset>
+
+        <!-- nothing happens when I click this button -->
+        <button class="btn btn-primary" ng-click="filterProducts()">Submit</button>
     </form>
 </div>

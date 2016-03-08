@@ -1,25 +1,25 @@
 /*//////////////////////////////
-Fonts
+    Fonts
 //////////////////////////////*/
 @font-face {
     font-family: 'PuristaBold';
-    url('../fonts/purista_bold.ttf') format('truetype');
+    src: url('../fonts/purista_bold.ttf') format('truetype');
 }
 @font-face {
     font-family: 'PuristaLight';
-    url('../fonts/purista_light.ttf') format('truetype');
+    src: url('../fonts/purista_light.ttf') format('truetype');
 }
 @font-face {
     font-family: 'PuristaMedium';
-    url('../fonts/purista_medium.ttf') format('truetype');
+    src: url('../fonts/purista_medium.ttf');
 }
 @font-face {
     font-family: 'TinosBold';
-    url('../fonts/Tinos-Bold.ttf') format('truetype');
+    src: url('../fonts/Tinos-Bold.ttf') format('truetype');
 }
 @font-face {
     font-family: 'TinosRegular';
-    url('../fonts/Tinos-Regular.ttf') format('truetype');
+    src: url('../fonts/Tinos-Regular.ttf') format('truetype');
 }
 /*//////////////////////////////
     General Utility Styles
@@ -32,7 +32,9 @@ Fonts
     Body and Header Styles
 //////////////////////////////*/
 body {
+    font-family: TinosRegular;
     background-color: black;
+    letter-spacing: 1px;
 }
 .container {
     background-color: black;
@@ -40,28 +42,64 @@ body {
 .container-shadow {
     box-shadow: 0 5px 20px 5px rgba(0,0,0,0.24);
 }
-.navbar-brand {
-    background-image: url(../img/logo.png);
-    width: 200px;
-    height: 113px;
+.nav {
+    margin-bottom: 40px;
+}
+.nav > li > a {
+    color: #f60022;
+    transition: background-color .5s, color .5s;
+    font-family: PuristaMedium;
+    letter-spacing: 2px;
+    text-shadow: none;
+}
+.nav > li > a:hover {
+    color: black;
+    background-color: white;
+}
+#products-container {
+    background-color: white;
 }
 
 /*//////////////////////////////
     Content styles
 //////////////////////////////*/
+h1, h2, h3, h4 {
+    font-family: PuristaMedium;
+    color: white;
+    letter-spacing: 5px;
+}
 ul {
     padding-left: 0;
 }
 li {
     list-style-type: none;
 }
-#content {
-    border-top: 1px solid rgba(23,43,67,.2);
+#content h1 {
+    color: black;
 }
-.panel-primary>.panel-heading {
-    background-color: #172B43;
+.panel-primary {
+    border-radius: 0;
+    border: none;
+}
+.panel-primary > .panel-heading {
+    background-color: black;
     background-image: none;
+    color: #f60022;
+    font-family: PuristaMedium;
+    border-radius: 0;
 }
 #productsfilter {
     background-color: black;
+}
+
+/*//////////////////////////////
+    Sidebar styles
+//////////////////////////////*/
+.form-control {
+    border-radius: 0;
+}
+label {
+    color: white;
+    font-family: PuristaMedium;
+    font-weight: normal;
 }

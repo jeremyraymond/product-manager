@@ -1,38 +1,49 @@
 "use strict";
 
-app.controller('ProductsController', ['$scope','productService', function($scope, $productService) {
+app.controller('ProductsController', ['$scope', '$location','productService', function($scope, $location, $productService) {
     $scope.products = {};
+    var last_seen_product = $location.search()['last_seen'];
+    $scope.filters = {
+        product_name: 'nulla',
+        bot_price: '60',
+        top_price: '310',
+        in_stock: false,
+        manufacturer_guid: '',
+        last_seen: 1,
+        per_page: 20,
+        order_by: 'product_id',
+        order: 'asc'
+    };
 
-    $scope.filter_product_name = 'con';
-    $scope.filter_top_price = 300;
-    $scope.filter_bot_price = 20;
-    $scope.filter_in_stock = true;
-    $scope.filter_manufacturer_guid = '';
-    $scope.filter_last_seen = 1;
-    $scope.filter_per_page = 20;
-    $scope.filter_order_by = 'product_id';
-    $scope.filter_order = 'asc';
+    if (last_seen_product != null) {
+        $scope.filters['last_seen'] = last_seen_product;
+    }
 
     // need to add a function here and have ng-init call that function.
     // also need to get rid of the main controller and have a controller for every view.
     var data = {
-        product_name: $scope.filter_product_name,
-        top_price: $scope.filter_top_price,
-        bot_price: $scope.filter_bot_price,
-        in_stock: $scope.filter_in_stock,
-        last_seen: $scope.filter_last_seen,
-        per_page: $scope.filter_per_page,
-        order_by: $scope.filter_order_by,
-        order: $scope.filter_order
+        product_name: $scope.filters['product_name'],
+        top_price: $scope.filters['top_price'],
+        bot_price: $scope.filters['bot_price'],
+        in_stock: $scope.filters['in_stock'],
+        last_seen: $scope.filters['last_seen'],
+        per_page: $scope.filters['per_page'],
+        order_by: $scope.filters['order_by'],
+        order: $scope.filters['order']
     };
     var config = {
         params: data
     };
-    $productService.getProducts(config).then(function (response) {
-        $scope.products = response.data;
-    }, function () {
-        alert("productService broke");
-    });
+
+    function filterProducts() {
+        $productService.getProducts(config).then(function (response) {
+            $scope.products = response.data;
+        }, function () {
+            alert("productService broke");
+        });
+    }
+    console.log("test");
+    filterProducts();
 
 
 }]);
