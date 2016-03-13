@@ -10,6 +10,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('products', {
             url: "/products",
-            templateUrl: "views/products.html"
+            templateUrl: "views/products.html",
+            reloadOnSearch: false
         });
 });

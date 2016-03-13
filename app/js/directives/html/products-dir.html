@@ -7,6 +7,7 @@
                 <ul>
                     <li><b>Made by:</b> {{ p.manufacturer_name }}</li>
                     <li><b>Price:</b> {{ p.price | currency }}</li>
+                    <li><b>In Stock:</b> {{ p.amount_in_stock }}</li>
                     <li><b>Description:</b> <br>{{ p.description | limitchars:20 }}</li>
                 </ul>
             </div>

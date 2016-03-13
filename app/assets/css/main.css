@@ -91,6 +91,9 @@ li {
 #productsfilter {
     background-color: black;
 }
+#productsfilter > form {
+    position: fixed;
+}
 
 /*//////////////////////////////
     Sidebar styles
