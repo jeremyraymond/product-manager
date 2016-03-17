@@ -56,9 +56,6 @@ body {
     color: black;
     background-color: white;
 }
-#products-container {
-    background-color: white;
-}
 
 /*//////////////////////////////
     Content styles
@@ -74,6 +71,16 @@ ul {
 li {
     list-style-type: none;
 }
+#products-container {
+    background-color: white;
+}
+#page-links a {
+    color: black;
+    cursor: pointer;
+}
+#page-links a:hover {
+    text-decoration: none;
+}
 #content h1 {
     color: black;
 }
@@ -88,16 +95,16 @@ li {
     font-family: PuristaMedium;
     border-radius: 0;
 }
+
+/*//////////////////////////////
+    Sidebar styles
+//////////////////////////////*/
 #productsfilter {
     background-color: black;
 }
 #productsfilter > form {
     position: fixed;
 }
-
-/*//////////////////////////////
-    Sidebar styles
-//////////////////////////////*/
 .form-control {
     border-radius: 0;
 }

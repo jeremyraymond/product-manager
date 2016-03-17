@@ -1,25 +1,79 @@
 "use strict";
 
 app.controller('ProductsController', ['$scope', '$location','productService', function($scope, $location, $productService) {
+    $scope.first_page = false;
+    $scope.last_page = false;
     $scope.products = {};
-    var last_seen_product = $location.search()['last_seen'];
+
     $scope.filters = {
         product_name: '',
         bot_price: '',
         top_price: '',
-        in_stock: false,
+        in_stock: false, // default value
         manufacturer_guid: '',
-        last_seen: 1,
-        per_page: "20",
-        order_by: 'product_id',
-        order: 'asc'
+        last_seen: 1, // default value
+        per_page: "20", // default value
+        order_by: 'product_id', // default value
+        order: 'asc' // default value
     };
 
-    if (last_seen_product != null) {
-        $scope.filters['last_seen'] = last_seen_product;
+    // Collect the last seen product from the url query string if it exists
+    var page = $location.search()['page'];
+    if (page != null) {
+        $scope.filters['last_seen'] = parseInt(page) * parseInt($scope.filters['per_page']) + 1;
     }
 
+    /*/////////////////////////////////////////////////////////////////////////
+        prevPage()
+
+        Function to move to the previous page
+     */////////////////////////////////////////////////////////////////////////
+    $scope.prevPage = function() {
+        // Subtrack the last seen product ID by how many should be displayed per page
+        $scope.filters['last_seen'] = parseInt($scope.filters['last_seen']) - parseInt($scope.filters['per_page']);
+        // Make sure we don't go into the negatives
+        if($scope.filters['last_seen'] < 1) {
+            $scope.filters['last_seen'] = 1;
+        }
+        // Add the new page number to the query string
+        // This is equal to the last seen product ID minus 1, then divide by how many per page, then add one again.
+        $location.search('page', parseInt(($scope.filters['last_seen']) - 1) / parseInt($scope.filters['per_page']) + 1);
+        // Run the query
+        $scope.getProducts();
+    };
+
+    /*/////////////////////////////////////////////////////////////////////////
+        nextPage()
+
+        Function to move to the next page
+     */////////////////////////////////////////////////////////////////////////
+    $scope.nextPage = function() {
+        // Add the last seen product ID by how many should be displayed per page
+        $scope.filters['last_seen'] = parseInt($scope.filters['last_seen']) + parseInt($scope.filters['per_page']);
+        // Add the new page number to the query string
+        // This is equal to the last seen product ID minus 1, then divide by how many per page, then add one again.
+        $location.search('page', parseInt(($scope.filters['last_seen']) - 1) / parseInt($scope.filters['per_page']) + 1);
+        $scope.getProducts();
+    };
+
+    /*/////////////////////////////////////////////////////////////////////////
+        filterProducts()
+
+        Function called when filters sidebar is used. Removes the pagination from
+        the query string and then executes getProducts()
+     */////////////////////////////////////////////////////////////////////////
     $scope.filterProducts = function() {
+        $location.search('page', null);
+        $scope.filters['last_seen'] = 1;
+        $scope.getProducts();
+    };
+
+    /*/////////////////////////////////////////////////////////////////////////
+        getProducts()
+
+        Function to collect the filters and call the API and return products
+     */////////////////////////////////////////////////////////////////////////
+    $scope.getProducts = function() {
         var data = {
             product_name: $scope.filters['product_name'],
             top_price: $scope.filters['top_price'],
@@ -41,8 +95,10 @@ app.controller('ProductsController', ['$scope', '$location','productService', fu
         }, function () {
             alert("productService broke");
         });
-    }
-    $scope.filterProducts();
+    };
+
+    // Call function on initial page load
+    $scope.getProducts();
 
 
 }]);
