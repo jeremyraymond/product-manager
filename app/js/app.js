@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module("productApp", ['ui.router']);
+var app = angular.module("productApp", ['ui.router', 'infinite-scroll']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $stateProvider

@@ -22,16 +22,6 @@
         </div>
 
         <fieldset class="form-group">
-            <label for="per_page">Per Page</label>
-            <select class="form-control" id="per_page" ng-model="filters['per_page']">
-                <option value="10">10</option>
-                <option value="20" selected>20</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-        </fieldset>
-
-        <fieldset class="form-group">
             <label for="manufacturers">Manufacturers</label>
             <select class="form-control" id="manufacturers" ng-model="filters['manufacturer_guid']" ng-options="p.manufacturer_guid as p.manufacturer_name for p in products">
             </select>

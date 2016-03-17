@@ -1,12 +1,8 @@
-<div id="products-container" class="col-md-9 clearfix">
+<div id="products-container" infinite-scroll="nextSet()" class="col-md-9 clearfix">
     <div>
         <h1>Products</h1>
-        <div id="page-links">
-            <a ng-click="prevPage()" ng-show="!first_page">< Prev</a><span ng-show="!first_page"> | </span>
-            <a ng-click="nextPage()" ng-show="!last_page">Next ></a>
-        </div>
     </div>
-    <div class="col-md-6" ng-repeat="p in products" >
+    <div class="col-md-6" ng-repeat="p in displayed_products" >
         <div class="panel panel-primary">
             <div class="panel-heading"><b>{{ p.product_name }}</b></div>
             <div class="panel-body">
