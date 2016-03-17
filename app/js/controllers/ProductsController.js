@@ -24,11 +24,30 @@ app.controller('ProductsController', ['$scope', '$location','productService', fu
     }
 
     /*/////////////////////////////////////////////////////////////////////////
-        nextSet()
+        prevPage()
+
+        Function to move to the previous page
+     */////////////////////////////////////////////////////////////////////////
+    $scope.prevPage = function() {
+        // Subtrack the last seen product ID by how many should be displayed per page
+        $scope.filters['last_seen'] = parseInt($scope.filters['last_seen']) - parseInt($scope.filters['per_page']);
+        // Make sure we don't go into the negatives
+        if($scope.filters['last_seen'] < 1) {
+            $scope.filters['last_seen'] = 1;
+        }
+        // Add the new page number to the query string
+        // This is equal to the last seen product ID minus 1, then divide by how many per page, then add one again.
+        $location.search('page', parseInt(($scope.filters['last_seen']) - 1) / parseInt($scope.filters['per_page']) + 1);
+        // Run the query
+        $scope.getProducts();
+    };
+
+    /*/////////////////////////////////////////////////////////////////////////
+        nextPage()
 
         Function to move to the next page
      */////////////////////////////////////////////////////////////////////////
-    $scope.nextSet = function() {
+    $scope.nextPage = function() {
         // Add the last seen product ID by how many should be displayed per page
         $scope.filters['last_seen'] = parseInt($scope.filters['last_seen']) + parseInt($scope.filters['per_page']);
         // Add the new page number to the query string
