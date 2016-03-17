@@ -3,23 +3,23 @@
 //////////////////////////////*/
 @font-face {
     font-family: 'PuristaBold';
-    src: url('../fonts/purista_bold.ttf') format('truetype');
+    src: url('fonts/purista_bold.ttf') format('truetype');
 }
 @font-face {
     font-family: 'PuristaLight';
-    src: url('../fonts/purista_light.ttf') format('truetype');
+    src: url('fonts/purista_light.ttf') format('truetype');
 }
 @font-face {
     font-family: 'PuristaMedium';
-    src: url('../fonts/purista_medium.ttf');
+    src: url('fonts/purista_medium.ttf');
 }
 @font-face {
     font-family: 'TinosBold';
-    src: url('../fonts/Tinos-Bold.ttf') format('truetype');
+    src: url('fonts/Tinos-Bold.ttf') format('truetype');
 }
 @font-face {
     font-family: 'TinosRegular';
-    src: url('../fonts/Tinos-Regular.ttf') format('truetype');
+    src: url('fonts/Tinos-Regular.ttf') format('truetype');
 }
 /*//////////////////////////////
     General Utility Styles

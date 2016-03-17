@@ -218,3 +218,4 @@ pip-log.txt
 app/js/shared/*
 app/assets/fonts/
 app/assets/bootstrap/
+app/bower_components/

@@ -1,0 +1,28 @@
+{
+  "name": "product-manager",
+  "homepage": "https://github.com/jeremyraymond/product-manager",
+  "authors": [
+    "jeremyraymond <jeremy.r.raymond@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.2",
+    "ngInfiniteScroll": "1.0.0",
+    "bootstrap": "^3.3.6",
+    "angular": "^1.5.1",
+    "angular-ui-router": "^0.2.18"
+  }
+}
