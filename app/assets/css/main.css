@@ -94,6 +94,7 @@ li {
     color: #f60022;
     font-family: PuristaMedium;
     border-radius: 0;
+    text-transform: capitalize;
 }
 
 /*//////////////////////////////

@@ -3,6 +3,7 @@
 app.controller('ProductsController', ['$scope', '$location','productService', function($scope, $location, $productService) {
     $scope.products = [];
     $scope.displayed_products = [];
+    $scope.manufacturers = [];
 
     $scope.filters = {
         product_name: '',
@@ -10,10 +11,15 @@ app.controller('ProductsController', ['$scope', '$location','productService', fu
         top_price: '',
         in_stock: false, // default value
         manufacturer_guid: '',
-        per_set: "20",
+        category: '',
+        per_set: '20',
         order_by: 'product_id', // default value
         order: 'asc' // default value
     };
+    // if 'cat' is in the query string, set the category to its value
+    if($location.search().cat) {
+        $scope.filters['category'] = $location.search().cat;
+    }
 
     /*/////////////////////////////////////////////////////////////////////////
         nextSet()
@@ -21,8 +27,11 @@ app.controller('ProductsController', ['$scope', '$location','productService', fu
         Function to move to the next page
      */////////////////////////////////////////////////////////////////////////
     $scope.nextSet = function() {
-        for(var i = 0; i < $scope.filters['per_set']; i++) {
-            $scope.displayed_products.push($scope.products.shift());
+        // prevents execution of logic if the products array doesn't have data
+        if($scope.products.length > 0) {
+            for (var i = 0; i < $scope.filters['per_set']; i++) {
+                $scope.displayed_products.push($scope.products.shift());
+            }
         }
     };
 
@@ -56,6 +65,29 @@ app.controller('ProductsController', ['$scope', '$location','productService', fu
         };
 
         $productService.getProducts(config).then(function (response) {
+            $scope.products = response.data;
+            // get the first set of data displayed on the page
+            $scope.nextSet();
+        }, function () {
+            alert("productService broke");
+        });
+    };
+
+    /*/////////////////////////////////////////////////////////////////////////
+     getManufacturers()
+
+     Function to call the API and return manufacturers, potentially based on
+     category
+     */////////////////////////////////////////////////////////////////////////
+    $scope.getManufacturers = function() {
+        var data = {
+            category: $scope.filters['category']
+        };
+        var config = {
+            params: data
+        };
+
+        $productService.getManufacturers(config).then(function (response) {
             $scope.products = response.data;
             // get the first set of data displayed on the page
             $scope.nextSet();
